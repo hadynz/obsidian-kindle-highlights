@@ -2,7 +2,7 @@ import type { Root } from 'cheerio';
 
 import { currentAmazonRegion } from '~/amazonRegion';
 import type { Book, Highlight } from '~/models';
-import { br2ln, hash } from '~/utils';
+import { br2ln, hash_short } from '~/utils';
 
 import { loadRemoteDom } from './loadRemoteDom';
 
@@ -18,9 +18,8 @@ export const mapTextToColor = (highlightClasses: string): Highlight['color'] => 
 
 const highlightsUrl = (book: Book, state?: NextPageState): string => {
   const region = currentAmazonRegion();
-  return `${region.notebookUrl}?asin=${book.asin}&contentLimitState=${
-    state?.contentLimitState ?? ''
-  }&token=${state?.token ?? ''}`;
+  return `${region.notebookUrl}?asin=${book.asin}&contentLimitState=${state?.contentLimitState ?? ''
+    }&token=${state?.token ?? ''}`;
 };
 
 const parseNextPageState = ($: Root): NextPageState | null => {
@@ -40,7 +39,7 @@ const parseHighlights = ($: Root): Highlight[] => {
 
     const text = $('#highlight', highlightEl).text()?.trim();
     return {
-      id: hash(text),
+      id: hash_short(text),
       text,
       color,
       location: $('#kp-annotation-location', highlightEl).val(),

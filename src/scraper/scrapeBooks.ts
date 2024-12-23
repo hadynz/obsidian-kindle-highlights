@@ -43,7 +43,7 @@ export const parseBooks = ($: Root): Book[] => {
     const scrapedAuthor = $('p.kp-notebook-searchable', bookEl).text();
 
     return {
-      id: hash(title),
+      id: "md5:" + hash(title),
       asin: $(bookEl).attr('id'),
       title,
       author: parseAuthor(scrapedAuthor),

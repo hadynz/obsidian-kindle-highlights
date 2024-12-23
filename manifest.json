@@ -1,10 +1,10 @@
 {
   "id": "obsidian-kindle-plugin",
   "name": "Kindle Highlights",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "description": "Sync your Kindle book highlights using your Amazon login or uploading your My Clippings file",
   "minAppVersion": "0.10.2",
-  "author": "Hady Osman",
+  "author": "Hady Osman (Modieif by Shaun Barlow)",
   "authorUrl": "https://hady.geek.nz",
   "isDesktopOnly": true
 }
